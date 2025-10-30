@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>X Robotics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #111827;
+        --muted: #4b5563;
+        --accent: #1f2937;
+        --rule: #e5e7eb;
+        --link: #0f766e;
+      }
+      html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
+      .page { max-width: 880px; margin: 40px auto 96px; padding: 0 24px; }
+      header.paper-header { text-align: center; margin-bottom: 28px; }
+      .title { font-family: Merriweather, Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; }
+      .authors { font-size: 16px; color: var(--muted); margin: 0; }
+      .authors strong { color: var(--fg); font-weight: 600; }
+      .meta { font-size: 14px; color: var(--muted); margin-top: 6px; }
+      hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 24px 0 24px; }
+      section { margin: 28px 0; }
+      h2 { font-family: Merriweather, Georgia, serif; font-size: 22px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.005em; }
+      h3 { font-family: Merriweather, Georgia, serif; font-size: 18px; font-weight: 700; margin: 18px 0 8px; }
+      p { margin: 10px 0; }
+      .abstract { background: #fbfbfc; border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; }
+      .abstract .label { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
+      ol { margin: 8px 0 0 22px; }
+      .video { margin: 18px 0 28px; }
+      .video .caption { font-size: 14px; color: var(--muted); margin: 6px 0 10px; }
+      /* Responsive 16:9 iframe wrapper */
+      .iframe-wrap { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); }
+      .iframe-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .btn { display: inline-block; padding: 10px 14px; background: #0f766e; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; }
+      .btn:hover { background: #115e59; }
+      a { color: var(--link); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      footer { margin-top: 48px; font-size: 13px; color: var(--muted); text-align: center; }
+
+      @media (max-width: 520px) {
+        .title { font-size: 32px; }
+        .page { margin-top: 28px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="paper-header">
+        <h1 class="title">X Robotics</h1>
+        <p class="authors">
+          <strong>Abhishek Parmar</strong> · <strong>Akash Karnatak</strong>
+        </p>
+        <p class="meta">October 2025</p>
+      </header>
+
+      <hr class="rule" />
+
+      <section class="abstract">
+        <span class="label">Description</span>
+        <p>
+          Here at 2X Robotics we are committed to deploying 1B robots.
+        </p>
+      </section>
+
+      <section>
+        <h2>Where VLAs struggle</h2>
+        <ol>
+          <li>Non Markovian tasks</li>
+          <li>Long horizon tasks</li>
+          <li>Caching tasks that have already been performed and performing them better the next time.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Our answer</h2>
+        <p>
+          An Operating System layer that adds a helpful abstraction allowing robots to include
+          modules like Spatial memory, safety, navigation and AI in one click.
+        </p>
+        <p>
+          We are starting with Spatial Memory (RAG) for VLAs and are already seeing a good amount of
+          improvement in long horizon tasks.
+        </p>
+      </section>
+
+      <section>
+        <h2>Results</h2>
+
+        <div class="video">
+          <h3>Video 1</h3>
+          <p class="caption">Put the three can of soda from the living room inside the trash can in the kitchen.</p>
+          <div class="iframe-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/17DhfgxPj3f2mGfzalsXTreUTcGvMXyvH/preview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="video">
+          <h3>Video 2</h3>
+          <p class="caption">Turn on the radio receiver that's on the table in the living room.</p>
+          <div class="iframe-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/1T7VSN1-76Ev8CtUIvE0o7y6dW-c0eGvM/preview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="video">
+          <h3>Video 3</h3>
+          <p class="caption">Move the two storage containers from the living room to the garage. In the garage, place one container on the floor and stack the other container on top of it (either order is fine)</p>
+          <div class="iframe-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/1cNZ3W-yHo6SukAG0O7UAK9WcG9HIiYTc/preview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>High Quality</h2>
+        <p>
+          Access the high-quality originals here:
+          <a class="btn" href="https://drive.google.com/drive/folders/1oT-XvaG85sKaKC906UfPtmjFheLRpNoX?usp=sharing" target="_blank" rel="noopener">Open Drive Folder</a>
+        </p>
+      </section>
+
+      <footer>
+        © 2025 X Robotics
+      </footer>
+    </main>
+  </body>
+  </html>
+
+
