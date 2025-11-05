@@ -1,163 +1,392 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>X Robotics</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg: #ffffff;
-        --fg: #111827;
-        --muted: #4b5563;
-        --accent: #1f2937;
-        --rule: #e5e7eb;
-        --link: #0f766e;
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>X Robotics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111827;
+      --muted: #4b5563;
+      --accent: #1f2937;
+      --rule: #e5e7eb;
+      --link: #0f766e;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 40px auto 96px;
+      padding: 0 24px;
+    }
+
+    header.paper-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .title {
+      font-family: Merriweather, Georgia, serif;
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+    }
+
+    .authors {
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .authors strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    .meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    hr.rule {
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 24px 0 24px;
+    }
+
+    section {
+      margin: 28px 0;
+    }
+
+    h2 {
+      font-family: Merriweather, Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.005em;
+    }
+
+    h3 {
+      font-family: Merriweather, Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .abstract {
+      background: #fbfbfc;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .abstract .label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    ol {
+      margin: 8px 0 0 22px;
+    }
+
+    .video {
+      margin: 18px 0 28px;
+    }
+
+    .video .caption {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 6px 0 10px;
+    }
+
+    /* Responsive 16:9 iframe wrapper */
+    .iframe-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+    }
+
+    .iframe-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #0f766e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: #115e59;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .title {
+        font-size: 32px;
       }
-      html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
-      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.6; }
-      .page { max-width: 880px; margin: 40px auto 96px; padding: 0 24px; }
-      header.paper-header { text-align: center; margin-bottom: 28px; }
-      .title { font-family: Merriweather, Georgia, serif; font-size: 40px; line-height: 1.2; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; }
-      .authors { font-size: 16px; color: var(--muted); margin: 0; }
-      .authors strong { color: var(--fg); font-weight: 600; }
-      .meta { font-size: 14px; color: var(--muted); margin-top: 6px; }
-      hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 24px 0 24px; }
-      section { margin: 28px 0; }
-      h2 { font-family: Merriweather, Georgia, serif; font-size: 22px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.005em; }
-      h3 { font-family: Merriweather, Georgia, serif; font-size: 18px; font-weight: 700; margin: 18px 0 8px; }
-      p { margin: 10px 0; }
-      .abstract { background: #fbfbfc; border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; }
-      .abstract .label { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
-      ol { margin: 8px 0 0 22px; }
-      .video { margin: 18px 0 28px; }
-      .video .caption { font-size: 14px; color: var(--muted); margin: 6px 0 10px; }
-      /* Responsive 16:9 iframe wrapper */
-      .iframe-wrap { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); }
-      .iframe-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-      .btn { display: inline-block; padding: 10px 14px; background: #0f766e; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; }
-      .btn:hover { background: #115e59; }
-      a { color: var(--link); text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      footer { margin-top: 48px; font-size: 13px; color: var(--muted); text-align: center; }
 
-      @media (max-width: 520px) {
-        .title { font-size: 32px; }
-        .page { margin-top: 28px; }
+      .page {
+        margin-top: 28px;
       }
-    </style>
-  </head>
-  <body>
-    <main class="page">
-      <header class="paper-header">
-        <h1 class="title">X Robotics</h1>
-        <p class="authors">
-          <a href="https://www.linkedin.com/in/abhishek-parmar-a88a05191/" target="_blank" rel="noopener"><strong>Abhishek Parmar</strong></a>
-          ·
-          <a href="https://www.linkedin.com/in/akash-karnatak-9027371a0/" target="_blank" rel="noopener"><strong>Akash Karnatak</strong></a>
-        </p>
-        <p class="meta">October 2025</p>
-      </header>
+    }
+  </style>
+</head>
 
-      <hr class="rule" />
+<body>
+  <main class="page">
+    <header class="paper-header">
+      <h1 class="title">X Robotics</h1>
+      <p class="authors">
+        <a href="https://www.linkedin.com/in/abhishek-parmar-a88a05191/" target="_blank" rel="noopener"><strong>Abhishek
+            Parmar</strong></a>
+        ·
+        <a href="https://www.linkedin.com/in/akash-karnatak-9027371a0/" target="_blank" rel="noopener"><strong>Akash
+            Karnatak</strong></a>
+      </p>
+      <p class="meta">October 2025</p>
+    </header>
 
-      <section class="abstract">
-        <span class="label">Description</span>
-        <p>
-          Here at X Robotics we are committed to solving one of the hardest problems in robotics foundational models: Memory.
-        </p>
-      </section>
+    <hr class="rule" />
 
-      <section>
-        <h2>Where VLAs struggle</h2>
-        <ol>
-          <li>Non Markovian tasks</li>
-          <li>Long horizon tasks</li>
-          <li>Caching tasks that have already been performed and performing them better the next time.</li>
-        </ol>
-      </section>
+    <section class="abstract">
+      <span class="label">Abstract</span>
+      <p>
 
-      <section>
-        <h2>Our answer</h2>
-        <p>
-          We propose a unified control and memory layer (Spatial RAG) for embodied agents that transforms VLAs from stateless planners into context-aware learners.
-     </p>
-        <p>
-Our system which is optimised for edge devices, integrates spatial memory, safety, navigation, and perception into a modular OS-like framework, enabling agents to cache and refine behaviors across executions. 
-Preliminary results on long-horizon, non-Markovian benchmarks show consistent performance gains, suggesting a path toward reusable, persistent-memory architectures for autonomous robotics.
-   
-        </p>
-      </section>
+        Scaling data to improve the metrics of current robotics foundational models is a challenge.
+        But the amount of data required can be reduced significantly by implementing better system/architectural
+        designs.
+        <br><br>
+        A parallel can be taken from LLMs, where further data scaling has shown diminishing
+        returns. Focus has now shifted towards architectural innovations such as
+        (RAG) and in-context learnings. These types of systems are ideal for robotics applications
+        humans rely on systems enabling robotic systems to recall prior experiences, reason within context, and adapt
+        dynamically to new environments.
 
-      <section>
-        <h2>Results</h2>
-        <div>We are using <a href="https://behavior.stanford.edu/index.html" target="_blank" rel="noopener">Behaviour1K</a> as the benchmark to test our techniques. In total there are 52 high quality Long Horizon Tasks on which we have tested and achieved state of the art results. 
+
+      </p>
+    </section>
+
+    <section>
+      <h2>Where VLAs struggle</h2>
+      <ol>
+        <li>
+          Non Markovian Tasks <sup><a href="#ref1" id="cite1">[1]</a></sup>
+        </li>
+        <li>
+          Long Horizon Tasks <sup><a href="#ref2" id="cite2">[2]</a></sup>
+        </li>
+        <li>
+          Data flywheel learning <sup><a href="#ref3" id="cite3">[3]</a></sup>
+        </li>
+        <li>
+          Loss of base model knowledge (VLM) during finetuning for action head <sup><a href="#ref4"
+              id="cite4">[4]</a></sup>
+        </li>
+        <li>
+          The VLA needs to be optimized for edge devices. Less compute = Longer Battery
+        </li>
+        <li>
+          The data collection hardware needs to be cheaper – people can’t be shipping or producing high fidelity copies
+          of their embodiment for data collection.
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Our Answer</h2>
+      <p>
+        We are solving this through a unified memory and context layer called the Spatial-Temporal RAG.
+        As part of this, we embed spatial information directly into existing foundational models,
+        significantly improving their robustness and overall performance.
+        Rather than functioning as a separate module, the system operates largely in context, allowing
+        fast, seamless retrieval and reasoning. For handling longer-term spatial and temporal details,
+        it uses a semantic representation that the core model can query and dynamically load into its context.
+        <br><br>
+        <b>
+          This module can integrate seamlessly with your existing AI models (including proprietary systems) or be used
+          through our own augmented foundational models, depending on your needs.
+        </b>
+        It consistently delivers improved task
+        performance across the board, while making it more intuitive and enjoyable for both your customers and your team
+        to program and interact with the robot, thanks to its ability to effectively remember, reason, and act on
+        real-world information.
+
+      </p>
+
+    </section>
+
+    <section>
+
+      <h2>Results</h2>
+      <div>We are using <a href="https://behavior.stanford.edu/index.html" target="_blank"
+          rel="noopener">Behaviour1K</a> as the benchmark to test our techniques. In total there are 52 high quality
+        Long Horizon Tasks on which we have tested and achieved state of the art results.
+      </div>
+      <div class="video">
+        <h3>Compilation (3 Long horizon Tasks)</h3>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/1mU4auVEK-IR_U0bUMmCspTsddMykeBcK/preview"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
-        <div class="video">
-          <h3>Video 1</h3>
-          <p class="caption">Put the three can of soda from the living room inside the trash can in the kitchen.</p>
-          <div class="iframe-wrap">
-            <iframe
-              src="https://drive.google.com/file/d/17DhfgxPj3f2mGfzalsXTreUTcGvMXyvH/preview"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+        <p>Note: The video quality is low because the robot does not need high quality vision.</p>
+      </div>
+
+
+      <div class="video">
+        <h3>Video 1</h3>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/17DhfgxPj3f2mGfzalsXTreUTcGvMXyvH/preview"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
+      </div>
 
-        <div class="video">
-          <h3>Video 2</h3>
-          <p class="caption">Turn on the radio receiver that's on the table in the living room.</p>
-          <div class="iframe-wrap">
-            <iframe
-              src="https://drive.google.com/file/d/1T7VSN1-76Ev8CtUIvE0o7y6dW-c0eGvM/preview"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+      <div class="video">
+        <h3>Video 2</h3>
+        <p class="caption">Turn on the radio receiver that's on the table in the living room.</p>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/1T7VSN1-76Ev8CtUIvE0o7y6dW-c0eGvM/preview"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
+      </div>
 
-        <div class="video">
-          <h3>Video 3</h3>
-          <p class="caption">Move the two storage containers from the living room to the garage. In the garage, place one container on the floor and stack the other container on top of it (either order is fine)</p>
-          <div class="iframe-wrap">
-            <iframe
-              src="https://drive.google.com/file/d/1cNZ3W-yHo6SukAG0O7UAK9WcG9HIiYTc/preview"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+      <div class="video">
+        <h3>Video 3</h3>
+        <p class="caption">Move the two storage containers from the living room to the garage. In the garage, place one
+          container on the floor and stack the other container on top of it (either order is fine)</p>
+        <div class="iframe-wrap">
+          <iframe src="https://drive.google.com/file/d/1cNZ3W-yHo6SukAG0O7UAK9WcG9HIiYTc/preview"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <h2>High Quality</h2>
-        <p>
-          Access the high-quality originals here:
-          <a class="btn" href="https://drive.google.com/drive/folders/1oT-XvaG85sKaKC906UfPtmjFheLRpNoX?usp=sharing" target="_blank" rel="noopener">Open Drive Folder</a>
-        </p>
-      </section>
-
-      <section>
-        <h2>Support</h2>
-        <p>
-          If you are a robotics team working on general purpose robots or humanoids, we would love to talk to you and augment our stack to integrate with your existing systems.
-        </p>
-        <p>
-          If you are a company who wants to support our research and innovation efforts, we would love to talk to you. GPU resources are expensive and any sponsorships are greatly appreciated!
-        </p>
-        <p>
-          You can reach us at: <a href="mailto:abhishekparmaroriginal@gmail.com">abhishekparmaroriginal@gmail.com</a>
-        </p>
-      </section>
-
-      <footer>
-        © 2025 X Robotics
-      </footer>
-    </main>
-  </body>
-  </html>
+    <section>
+      <h2>High Quality</h2>
+      <p>
+        Access the high-quality originals here:
+        <a class="btn" href="https://drive.google.com/drive/folders/1oT-XvaG85sKaKC906UfPtmjFheLRpNoX?usp=sharing"
+          target="_blank" rel="noopener">Open Drive Folder</a>
+      </p>
+    </section>
 
 
+
+    <section>
+      <h2>Support</h2>
+      <p>
+        If you are a robotics team working on general purpose robots or humanoids, we would love to talk to you and
+        augment our stack to integrate with your existing systems.
+      </p>
+      <p>
+        If you are a company who wants to support our research and innovation efforts, we would love to talk to you. GPU
+        resources are expensive and any sponsorships are greatly appreciated!
+      </p>
+      <p>
+        You can reach us at: <a href="mailto:abhishekparmaroriginal@gmail.com">abhishekparmaroriginal@gmail.com</a>
+      </p>
+    </section>
+
+
+    <section id="appendix">
+      <h2>Appendix</h2>
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li id="ref1">
+          <strong>[1]</strong> <em>Non-Markovian tasks</em>: tasks where the next action depends on more than just the
+          current state; the system must recall previous steps.
+          <br><strong>Example:</strong> When a robot is assembling furniture, it must remember where it placed each
+          screw earlier to correctly attach the next panel.
+        </li>
+        <br>
+        <li id="ref2">
+          <strong>[2]</strong> <em>Long-horizon tasks</em>: tasks made up of many interdependent actions over time.
+          Small errors can accumulate and derail the final goal.
+          <br><strong>Example:</strong> A robot asked to fetch a pair of keys from where you kept it yesterday in your home 
+        </li>
+        <br>
+        <li id="ref3">
+          <strong>[3]</strong> <em>Data flywheel</em>: a feedback loop where improved models generate better data, and
+          that data, in turn, makes models even better. When real-world data is scarce, automation keeps the cycle
+          running.
+          <br><strong>Example:</strong> An autonomous driving system that uses simulated edge cases to generate new data
+          when real accident footage is limited.
+        </li>
+        <br>
+        <li id="ref4">
+          <strong>[4]</strong> <em>Action head finetuning</em>: updating a model’s control layer to specialize for a new
+          task can accidentally overwrite earlier knowledge (catastrophic forgetting).
+          <br><strong>Example:</strong> A vision-language model trained on general tasks may forget how to describe
+          objects accurately if finetuned too aggressively for robotic grasping.
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      © 2025 X Robotics
+    </footer>
+  </main>
+</body>
+
+</html>
